@@ -4,7 +4,6 @@ import java.time.LocalDate
 
 class DateFormatter {
 
-    // TODO: Complete the following function
     fun toTextDay(day: String, month: String, year: String): String {
         val finalDay: StringBuilder = java.lang.StringBuilder()
 
