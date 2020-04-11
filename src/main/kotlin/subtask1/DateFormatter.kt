@@ -1,10 +1,23 @@
 package subtask1
 
+import java.time.DateTimeException
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class DateFormatter {
 
     fun toTextDay(day: String, month: String, year: String): String {
+        return try {
+            val date = LocalDate.of(year.toInt(), month.toInt(), day.toInt())
+            date.format(DateTimeFormatter.ofPattern("dd MMMM, EEEE", Locale.forLanguageTag("ru")))
+        } catch (e: DateTimeException) {
+            "Такого дня не существует"
+        }
+    }
+
+
+    /*fun toTextDay(day: String, month: String, year: String): String {
         val finalDay: StringBuilder = java.lang.StringBuilder()
 
         try {
@@ -18,9 +31,9 @@ class DateFormatter {
         println(finalDay.toString())
 
         return finalDay.toString()
-    }
+    }*/
 
-    fun addMonths(s: String): String {
+    /* fun addMonths(s: String): String {
         when (s) {
             "1" -> return "января"
             "2" -> return "февраля"
@@ -50,4 +63,5 @@ class DateFormatter {
         }
         return "такого дня не существует"
     }
+}*/
 }
