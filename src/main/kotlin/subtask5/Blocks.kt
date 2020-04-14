@@ -64,7 +64,7 @@ class Blocks {
             }
         }
 
-        return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale.forLanguageTag("ru")))
+        return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
     }
 
 }
