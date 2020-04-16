@@ -10,18 +10,34 @@ class Pangram {
     // TODO: Complete the following function
     fun getResult(inputString: String): String {
 
-        if (inputString == "                     ") return ""
+        val inputString1 = inputString.replace('\n', ' ')
+     //=======delete probels
+        var inputStringNoProbels: StringBuilder = StringBuilder()
+
+        inputString1.forEachIndexed { index, c ->
+            if (c == ' ' && index != inputString1.length - 1) {
+                if (inputString1[index + 1] != ' ') {
+                    inputStringNoProbels.append(c)
+                }
+            } else if (c == ' ' && index == inputString1.length - 1) {
+                print("nothing")
+            } else inputStringNoProbels.append(c)
+        }
+       if (inputStringNoProbels.toString() == "") return inputStringNoProbels.toString()
+     //====================
 
 
-        if (inputString == "asdasdasdasda \n" +
+       /* if (inputString == "asdasdasdasda \n" +
             "                            sdasdadasd sadasdasdas \n" +
-            "                            sadadad  ") return "4SaDaDaD 7SDaSDaDaSD 7SaDaSDaSDaS 8aSDaSDaSDaSDa"
+            "                            sadadad  "
+        ) return "4SaDaDaD 7SDaSDaDaSD 7SaDaSDaSDaS 8aSDaSDaSDaSDa"*/
+
 
 
         var inputStringNew = ""
-        inputStringNew = if (inputString[0] == ' ') {
-            inputString.drop(1)
-        } else inputString
+        inputStringNew = if (inputStringNoProbels[0] == ' ') {
+            inputStringNoProbels.toString().drop(1)
+        } else inputStringNoProbels.toString()
 
 
         var strBuilder: StringBuilder = StringBuilder()
